@@ -4,7 +4,7 @@
     "description": "Chrome extension that helps maintain groups of links/references for collaborative research and citing",
     "version": "1.0",
     "action": {
-      "default_popup": "index.html",
+      "default_popup": "popup/popup.html",
       "default_icon": "assets/main_icon.png"
     },
     "content_scripts": [
