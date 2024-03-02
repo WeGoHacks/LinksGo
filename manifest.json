@@ -11,7 +11,7 @@
     "icons": {
         "16": "assets/LinksGo (16 x 16 px).png",
         "48": "assets/LinksGo (48 x 48 px).png",
-        "128": "assest/LinksGo.png"
+        "128": "assets/LinksGo.png"
 
     },
     "content_scripts": [
