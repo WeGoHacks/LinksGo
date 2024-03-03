@@ -4,24 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clipboard Extension</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #f0f0f0, #d8d8d8); /* Gradient background */
+      padding: 20px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 10px; /* Add spacing above the text */
+      margin-bottom: 10px; /* Add spacing below the text */
+    }
+
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #008080; /* Teal color */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 10px; /* Add spacing below the buttons */
+    }
+
+    button:hover {
+      background-color: #006666; /* Darker teal on hover */
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: #008080;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Add bullet points */
+    ul.bullet {
+      list-style-type: disc; /* Use disc bullet points */
+      margin-left: 20px; /* Add indentation */
+    }
+  </style>
 </head>
 <body>
-  <!-- Clipboard Extension Section -->
   <h2>Clipboard Extension</h2>
-  <textarea id="textArea" rows="4" cols="50"></textarea>
+  <textarea id="textArea" rows="4" cols="50" placeholder="Enter text here"></textarea>
   <button id="copyButton">Copy to Clipboard</button>
   <button id="pasteButton">Paste to Google Docs</button>
 
-  <!-- Button Section -->
+  <!-- Tab Management Section -->
   <h2>Tab Management Section</h2>
   <button id="currentTabButton">Add Current Tab</button>
   <button id="allTabsButton">Add All Tabs in Window</button>
 
-  <!-- List Section -->
+  <!-- List of Links -->
   <h2>List of Links</h2>
-  <ul id="listOfLinks"></ul>
+  <ul id="listOfLinks" class="bullet"></ul>
 
-  <!-- Include JavaScript -->
   <script src="scripts/indexScript.js"></script>
   <script src="scripts/popup.js"></script>
 </body>

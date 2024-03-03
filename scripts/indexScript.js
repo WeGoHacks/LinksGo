@@ -1,4 +1,43 @@
-// javascript logic for the index.html popup
+// JavaScript logic for the index.html popup
+
+let currentTabButton = document.getElementById('currentTabButton');
+let allTabsButton = document.getElementById('allTabsButton');
+
+let linksList = document.getElementById('listOfLinks');
+let allTabsLinks = [];
+
+currentTabButton.addEventListener("click", () => {
+    chrome.runtime.sendMessage({currentTabButtonClicked: true}, (response) => {
+        console.log(response);
+        // response object contains link for the active tab.
+        let activeTabLink = response.activeTabLink;
+        addLinkToList(activeTabLink);
+    });
+});
+
+allTabsButton.addEventListener("click", () => {
+    chrome.runtime.sendMessage({allTabsButtonClicked: true}, (response) => {
+        // response contains a list of all links of the active window (called allTabsLinks)
+        console.log(response);
+        allTabsLinks = response.allTabsLinks;
+        for(const link of allTabsLinks){
+            addLinkToList(link);
+        }
+    })
+})
+
+function addLinkToList(url) {
+    let listElement = document.createElement('li');
+    let linkElement = document.createElement('a');
+    linkElement.href = url;
+    linkElement.textContent = url;
+    listElement.appendChild(linkElement);
+    linksList.appendChild(listElement);
+}
+
+
+
+/* // javascript logic for the index.html popup
 
 let currentTabButton = document.getElementById('currentTabButton');
 let allTabsButton = document.getElementById('allTabsButton');
@@ -27,7 +66,7 @@ function onError(error) {
 }
 /*
 browser.tabs.query({currentWindow: true}).then(logTabs, onError);
-*/
+
 let activeTabLink = "";
 
 currentTabButton.addEventListener("click", () => {
@@ -65,4 +104,4 @@ service cloud.firestore {
     }
   }
 }
-*/
+*/ 
