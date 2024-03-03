@@ -7,8 +7,7 @@ let allTabsLinks = [];
 
 chrome.runtime.sendMessage({activeTabUrl: activeTabUrl}, (response) => {
 	console.log('received data of url of current tab.', response);
-})
-
+});
 // get links of all tabs in the current window
 /*
 function logTabs(tabs) {
@@ -23,8 +22,9 @@ function onError(error) {
   console.error(`Error: ${error}`);
 }
 */
-
-chrome.tabs.query({ currentWindow: true }).then(logTabs, onError);
+/*
+chrome.windows.getCurrent.tabs.query({ currentWindow: true }).then(logTabs, onError);
 chrome.runtime.sendMessage({allTabsLinks: allTabsLinks}, (response) => {
 	console.log('received data of all links in current window.', response);
 });
+*/
