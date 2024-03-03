@@ -1,22 +1,30 @@
-// console.log("Inside content.js");
+console.log("Inside content.js");
 
-// // get link of active tab, and send to background script.
-// activeTabUrl = document.URL;
-// chrome.runtime.sendMessage({activeTabUrl: activeTabUrl}, (response) => {
-//     console.log('received user data', response);
-// });
+//get link of active tab, and send to background script
 
-// content.js
-document.addEventListener('copy', function (event) {
-    const selectedText = document.getSelection().toString();
+let activeTabUrl = document.URL;
+let allTabsLinks = [];
 
-    if (selectedText) {
-        console.log(selectedText);
+chrome.runtime.sendMessage({activeTabUrl: activeTabUrl}, (response) => {
+	console.log('received data of url of current tab.', response);
+})
 
-        // Send the copied text to the popup.js
-        chrome.runtime.sendMessage({ copiedTextFromContent: selectedText }, (response) => {
-            console.log('Received response from popup.js', response);
-        });
-    }
+// get links of all tabs in the current window
+/*
+function logTabs(tabs) {
+  for (const tab of tabs) {
+    // tab.url requires the `tabs` permission or a matching host permission.
+    console.log(tab.url);
+	allTabsLinks.append(tab.url);
+  }
+}
+
+function onError(error) {
+  console.error(`Error: ${error}`);
+}
+*/
+
+chrome.tabs.query({ currentWindow: true }).then(logTabs, onError);
+chrome.runtime.sendMessage({allTabsLinks: allTabsLinks}, (response) => {
+	console.log('received data of all links in current window.', response);
 });
-
