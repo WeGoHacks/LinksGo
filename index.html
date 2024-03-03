@@ -1,14 +1,28 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard Extension</title>
 </head>
 <body>
-<!-- Do buttons banaenge
-add current tab - add to list (show list in popup)
-add all tabs    - add all to list (show list in popup)
--->
-<button id="currentTabButton">Add Current Tab</button>
-<button id="allTabsButton">Add All Tabs in Window</button>
-<ul id="listOfLinks">
-</ul>
-<script src="scripts/indexScript.js"></script>
+  <!-- Clipboard Extension Section -->
+  <h2>Clipboard Extension</h2>
+  <textarea id="textArea" rows="4" cols="50"></textarea>
+  <button id="copyButton">Copy to Clipboard</button>
+  <button id="pasteButton">Paste to Google Docs</button>
+
+  <!-- Button Section -->
+  <h2>Tab Management Section</h2>
+  <button id="currentTabButton">Add Current Tab</button>
+  <button id="allTabsButton">Add All Tabs in Window</button>
+
+  <!-- List Section -->
+  <h2>List of Links</h2>
+  <ul id="listOfLinks"></ul>
+
+  <!-- Include JavaScript -->
+  <script src="scripts/indexScript.js"></script>
+  <script src="scripts/popup.js"></script>
 </body>
+</html>
