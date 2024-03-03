@@ -20,7 +20,7 @@ function logTabs(tabs) {
   	  // console.log(tab.url);
   }
   */
-}
+
 /*
 function onError(error) {
   console.error(`Error: ${error}`);
